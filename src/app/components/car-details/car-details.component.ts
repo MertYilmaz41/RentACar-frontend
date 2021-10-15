@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CarDetail } from 'src/app/models/carDetail';
+import { CarImage } from 'src/app/models/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-car-details',
@@ -7,7 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarDetailsComponent implements OnInit {
 
-  constructor() { }
+  carImages:CarImage[];
+  carDetails:CarDetail[];
+
+  constructor(private carService:CarService, 
+    private activatedRoute:ActivatedRoute,
+    private carImageService:CarImageService
+    ) { }
 
   ngOnInit(): void {
   }
